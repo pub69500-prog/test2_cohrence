@@ -1,0 +1,17 @@
+{
+  "inhale": [
+    "Inhale1.m4a",
+    "Inhale2.m4a",
+    "Inhale3.m4a"
+  ],
+  "exhale": [
+    "Exhale1.m4a",
+    "Exhale2.m4a",
+    "Exhale3.m4a"
+  ],
+  "music": [
+    "Music1.mp3",
+    "Music2.mp3",
+    "Music3.mp3"
+  ]
+}

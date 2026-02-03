@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohérence Cardiaque - Version Optimisée - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d4654;
+            background: linear-gradient(135deg, #f5f1e8 0%, #e8e4d9 100%);
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(45, 70, 84, 0.15);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2d4654;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7fa99b;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        
+        .section {
+            margin: 3rem 0;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #2d4654;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #7fa99b;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: #7fa99b;
+            margin: 1.5rem 0 0.8rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #2d4654;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(127, 169, 155, 0.1);
+            border: 1px solid rgba(127, 169, 155, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(127, 169, 155, 0.2);
+        }
+        
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: #2d4654;
+            margin-bottom: 0.8rem;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #7fa99b, #e8d5b5);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge.removed {
+            background: linear-gradient(135deg, #e57373, #ef5350);
+        }
+        
+        .badge.new {
+            background: linear-gradient(135deg, #66bb6a, #4caf50);
+        }
+        
+        .code-block {
+            background: #2d4654;
+            color: #f5f1e8;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(127, 169, 155, 0.2);
+        }
+        
+        .comparison-table th {
+            background: rgba(127, 169, 155, 0.15);
+            color: #2d4654;
+            font-weight: 600;
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(127, 169, 155, 0.05);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #7fa99b, #e8d5b5);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(127, 169, 155, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(127, 169, 155, 0.4);
+        }
+        
+        .highlight {
+            background: rgba(127, 169, 155, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌿 Cohérence Cardiaque</h1>
+        <div class="subtitle">Version Optimisée - Sans Scroll</div>
+        
+        <div class="section">
+            <h2>📋 Vue d'ensemble</h2>
+            <p>
+                Cette version repensée de l'application de cohérence cardiaque a été entièrement optimisée pour offrir 
+                une expérience <span class="highlight">sans scroll</span> sur tous les appareils. L'accent a été mis sur 
+                l'essentiel : la pratique de la cohérence cardiaque, avec un design méticuleux et épuré.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>✨ Modifications majeures</h2>
+            
+            <h3>🗑️ Suppressions</h3>
+            <div style="margin-bottom: 1rem;">
+                <span class="badge removed">Historique supprimé</span>
+                <span class="badge removed">Statistiques supprimées</span>
+                <span class="badge removed">Panneau historique retiré</span>
+                <span class="badge removed">Stockage sessions retiré</span>
+            </div>
+            <p>
+                Toute la logique d'historique et de statistiques (environ 400 lignes de code) a été retirée pour 
+                simplifier l'application et concentrer l'expérience sur la pratique actuelle.
+            </p>
+            
+            <h3>🎨 Ajouts et améliorations</h3>
+            <div style="margin-bottom: 1rem;">
+                <span class="badge new">Thème dark ajouté</span>
+                <span class="badge new">Section expandable</span>
+                <span class="badge new">Layout optimisé</span>
+                <span class="badge new">Design repensé</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎯 Fonctionnalités principales</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎨</span>
+                    <h4>Thème Clair/Sombre</h4>
+                    <p>Basculez entre thème clair et sombre avec un simple clic. Le choix est sauvegardé automatiquement.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h4>Design Sans Scroll</h4>
+                    <p>Interface entièrement visible sur mobile et desktop sans aucun scroll nécessaire. Position fixe optimale.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">⚙️</span>
+                    <h4>Paramètres Compacts</h4>
+                    <p>Grille de 3 colonnes pour durée, inspiration et expiration. Inputs inline avec icônes contextuelles.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🔊</span>
+                    <h4>Section Expandable</h4>
+                    <p>Les contrôles sons et musiques se déplient/replient pour économiser l'espace à l'écran.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🎵</span>
+                    <h4>Audio Complet</h4>
+                    <p>Sons d'inspiration/expiration, musiques d'ambiance, volumes individuels, support iOS/Android.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">💾</span>
+                    <h4>Préférences Sauvegardées</h4>
+                    <p>Tous vos réglages sont conservés : durée, rythme, sons, volumes et thème choisi.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Comparaison</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Fonctionnalité</th>
+                        <th>Version Originale</th>
+                        <th>Version Optimisée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Historique des séances</td>
+                        <td>✅ Oui</td>
+                        <td>❌ Non</td>
+                    </tr>
+                    <tr>
+                        <td>Statistiques</td>
+                        <td>✅ Oui (4 périodes)</td>
+                        <td>❌ Non</td>
+                    </tr>
+                    <tr>
+                        <td>Design sans scroll mobile</td>
+                        <td>❌ Non</td>
+                        <td>✅ Oui</td>
+                    </tr>
+                    <tr>
+                        <td>Thème sombre</td>
+                        <td>❌ Non</td>
+                        <td>✅ Oui</td>
+                    </tr>
+                    <tr>
+                        <td>Section sons expandable</td>
+                        <td>❌ Non</td>
+                        <td>✅ Oui</td>
+                    </tr>
+                    <tr>
+                        <td>Grille paramètres compacte</td>
+                        <td>❌ Non</td>
+                        <td>✅ Oui</td>
+                    </tr>
+                    <tr>
+                        <td>Lignes de code JS</td>
+                        <td>~1360</td>
+                        <td>~750</td>
+                    </tr>
+                    <tr>
+                        <td>Poids de l'app</td>
+                        <td>~140 KB</td>
+                        <td>~115 KB</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>🎨 Design System</h2>
+            
+            <h3>Palette de couleurs</h3>
+            <div class="code-block">:root {
+    --primary: #2d4654;      /* Bleu-gris profond */
+    --secondary: #7fa99b;    /* Vert sauge */
+    --accent: #e8d5b5;       /* Beige doré */
+    --light: #f5f1e8;        /* Crème clair */
+    --dark: #1a2930;         /* Bleu très sombre */
+}</div>
+            
+            <h3>Typographie</h3>
+            <ul>
+                <li><strong>Titres</strong> : Cormorant Garamond (élégante, serif)</li>
+                <li><strong>Corps de texte</strong> : Montserrat (moderne, sans-serif)</li>
+                <li><strong>Poids</strong> : 200-600 (léger à semi-bold)</li>
+            </ul>
+            
+            <h3>Effets visuels</h3>
+            <ul>
+                <li><strong>Backdrop blur</strong> : 20px sur les cartes principales</li>
+                <li><strong>Border radius</strong> : 24px pour cartes, 12-14px pour boutons</li>
+                <li><strong>Shadows</strong> : Douces et stratifiées pour profondeur</li>
+                <li><strong>Transitions</strong> : 0.3-0.4s ease pour fluidité</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📱 Responsive Design</h2>
+            
+            <h3>Desktop (> 968px)</h3>
+            <ul>
+                <li>Layout horizontal : zone respiration + panneau côte à côte</li>
+                <li>Zone respiration spacieuse (cercle 280px)</li>
+                <li>Panneau de contrôle fixe 360px de large</li>
+            </ul>
+            
+            <h3>Tablette (968px - 480px)</h3>
+            <ul>
+                <li>Layout vertical automatique</li>
+                <li>Cercle de respiration réduit (200px)</li>
+                <li>Textes et espacements ajustés</li>
+            </ul>
+            
+            <h3>Mobile (< 480px)</h3>
+            <ul>
+                <li><strong>Position fixe</strong> : html et body fixes, pas de scroll</li>
+                <li><strong>Cercle minimal</strong> : 160px pour maximiser l'espace</li>
+                <li><strong>Grille adaptative</strong> : sons en colonne unique</li>
+                <li><strong>Espacements réduits</strong> : chaque pixel compte</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>⚡ Performance</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Code allégé</h4>
+                    <p>~45% de réduction du code JavaScript (1360 → 750 lignes)</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Chargement rapide</h4>
+                    <p>Bundle 18% plus léger sans la logique d'historique</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Fluidité améliorée</h4>
+                    <p>Moins de calculs = animations plus douces</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>Mémoire optimisée</h4>
+                    <p>Pas de stockage massif de données historiques</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📦 Structure du projet</h2>
+            
+            <div class="code-block">coherence-optimized/
+├── index.html              # HTML optimisé
+├── css/
+│   └── style.css          # CSS avec thème dark
+├── js/
+│   └── app.js             # JS sans historique
+├── manifest.json          # PWA manifest
+├── sw.js                  # Service Worker
+├── icons/                 # Icônes PWA (192x192, 512x512)
+├── sounds/
+│   ├── inhale/           # Sons inspiration
+│   └── exhale/           # Sons expiration
+├── music/                # Musiques d'ambiance
+└── assets/
+    └── audio-manifest.json</div>
+        </div>
+        
+        <div class="section">
+            <h2>🚀 Installation et utilisation</h2>
+            
+            <ol>
+                <li><strong>Télécharger</strong> : Extraire le fichier coherence-optimized.zip</li>
+                <li><strong>Ouvrir</strong> : Double-cliquer sur index.html</li>
+                <li><strong>Configurer</strong> : Ajuster durée et rythme respiratoire</li>
+                <li><strong>Optionnel</strong> : Déplier "Sons & Musique" pour personnaliser</li>
+                <li><strong>Pratiquer</strong> : Cliquer sur "Commencer" et suivre le cercle</li>
+            </ol>
+            
+            <p style="margin-top: 1.5rem;">
+                <strong>Mode PWA</strong> : L'application peut être installée comme application web progressive 
+                sur mobile et desktop pour une expérience en plein écran.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>✅ Compatibilité</h2>
+            
+            <ul>
+                <li>✅ <strong>Chrome/Edge</strong> - Desktop & Mobile</li>
+                <li>✅ <strong>Firefox</strong> - Desktop & Mobile</li>
+                <li>✅ <strong>Safari</strong> - Desktop & iOS</li>
+                <li>✅ <strong>Samsung Internet</strong></li>
+                <li>✅ <strong>Mode PWA</strong> - Installable partout</li>
+            </ul>
+        </div>
+        
+        <div class="section" style="text-align: center; padding: 2rem 0;">
+            <h2>💚 Créé avec soin</h2>
+            <p style="font-size: 1.1rem; color: #7fa99b; margin-bottom: 2rem;">
+                Développé avec ❤️ par Chris pour une expérience de cohérence cardiaque optimale
+            </p>
+        </div>
+    </div>
+</body>
+</html>

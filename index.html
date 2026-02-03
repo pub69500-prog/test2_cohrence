@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="Cohérence Cardiaque" name="apple-mobile-web-app-title"/>
+    <title>Cohérence Cardiaque</title>
+    <!-- PWA Manifest -->
+    <link href="manifest.json" rel="manifest"/>
+    <!-- Icônes pour iOS -->
+    <link href="icons/icon-192x192.png" rel="apple-touch-icon"/>
+    <link href="icons/icon-512x512.png" rel="apple-touch-icon" sizes="512x512"/>
+    <!-- Couleur de la barre d'état iOS -->
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <!-- Thème color -->
+    <meta content="#2d4654" name="theme-color"/>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Montserrat:wght@200;300;400&amp;display=swap" rel="stylesheet"/>
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+
+    <div class="container">
+        <div class="header" id="appHeader">
+            <div class="theme-toggle" id="themeToggle" title="Changer de thème">
+                <span class="theme-icon">☀️</span>
+            </div>
+            <h1>Cohérence Cardiaque</h1>
+            <div class="subtitle">Harmonie · Équilibre · Sérénité</div>
+        </div>
+
+        <div class="main-layout">
+            <!-- Zone de respiration -->
+            <div class="breathing-zone" id="breathingZone">
+                <div class="session-controls" id="sessionControls" aria-hidden="true">
+                    <button class="btn btn-secondary" id="pauseBtn" type="button">Pause</button>
+                    <button class="btn btn-danger" id="quitBtn" type="button">Quitter</button>
+                </div>
+
+                <div class="circle-container">
+                    <div class="breathing-circle" id="breathingCircle">
+                        <div class="breath-text" id="breathText">🌿</div>
+                    </div>
+                </div>
+
+                <div class="timer-display" id="timerDisplay">05:00</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+
+                <div class="session-info">
+                    <div class="session-stat">
+                        <div class="session-stat-label">Cycles</div>
+                        <div class="session-stat-value" id="cycleCount">0</div>
+                    </div>
+                    <div class="session-stat">
+                        <div class="session-stat-label">Respirations</div>
+                        <div class="session-stat-value" id="breathCount">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panneau de contrôle -->
+            <div class="control-panel" id="controlPanel">
+                <div class="settings-grid">
+                    <!-- Durée totale -->
+                    <div class="setting-item">
+                        <label class="setting-label" for="sessionDuration">
+                            <span class="label-icon">⏱️</span>
+                            <span>Durée totale</span>
+                        </label>
+                        <div class="slider-row">
+                            <input id="sessionDuration" type="range" min="1" max="30" step="1" value="5"/>
+                            <span class="slider-value"><span id="sessionDurationValue">5</span> min</span>
+                        </div>
+                    </div>
+
+                    <!-- Inspiration -->
+                    <div class="setting-item">
+                        <label class="setting-label" for="inhaleTime">
+                            <span class="label-icon">↗️</span>
+                            <span>Inspiration</span>
+                        </label>
+                        <div class="slider-row">
+                            <input id="inhaleTime" type="range" min="3" max="10" step="1" value="5"/>
+                            <span class="slider-value"><span id="inhaleTimeValue">5</span> sec</span>
+                        </div>
+                    </div>
+
+                    <!-- Pause -->
+                    <div class="setting-item">
+                        <label class="setting-label" for="holdTime">
+                            <span class="label-icon">⏸️</span>
+                            <span>Pause</span>
+                        </label>
+                        <div class="slider-row">
+                            <input id="holdTime" type="range" min="0" max="5" step="1" value="0"/>
+                            <span class="slider-value"><span id="holdTimeValue">0</span> sec</span>
+                        </div>
+                    </div>
+
+                    <!-- Expiration -->
+                    <div class="setting-item">
+                        <label class="setting-label" for="exhaleTime">
+                            <span class="label-icon">↘️</span>
+                            <span>Expiration</span>
+                        </label>
+                        <div class="slider-row">
+                            <input id="exhaleTime" type="range" min="3" max="10" step="1" value="5"/>
+                            <span class="slider-value"><span id="exhaleTimeValue">5</span> sec</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sons & Musique -->
+                <div class="expandable-section" id="soundsSection">
+                    <button class="expandable-header" id="soundsHeader" type="button" aria-expanded="false" aria-controls="soundsContent">
+                        <span class="expandable-title">🎵 Sons & Musique</span>
+                        <span class="expandable-icon">+</span>
+                    </button>
+                    <div class="expandable-content" id="soundsContent" hidden>
+                        <div class="sound-controls">
+                            <div class="sound-row">
+                                <label class="sound-label" for="inhaleSound">Son inspiration</label>
+                                <select id="inhaleSound" class="sound-select">
+                                    <option value="">Chargement…</option>
+                                </select>
+                                <input class="volume-slider-compact" id="inhaleVolume" max="100" min="0" type="range" value="70"/>
+                            </div>
+
+                            <div class="sound-row">
+                                <label class="sound-label" for="exhaleSound">Son expiration</label>
+                                <select id="exhaleSound" class="sound-select">
+                                    <option value="">Chargement…</option>
+                                </select>
+                                <input class="volume-slider-compact" id="exhaleVolume" max="100" min="0" type="range" value="70"/>
+                            </div>
+
+                            <div class="sound-row">
+                                <label class="sound-label" for="musicSelect">Musique d'ambiance</label>
+                                <select id="musicSelect" class="sound-select">
+                                    <option value="">Chargement…</option>
+                                </select>
+                                <input class="volume-slider-compact" id="musicVolume" max="100" min="0" type="range" value="30"/>
+                            </div>
+                        </div>
+                        <div class="hint">
+                            Les fichiers sont chargés automatiquement depuis <code>/sounds</code> et <code>/music</code>.
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="startBtn" type="button">Démarrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran de fin de séance -->
+    <div class="end-screen" id="endScreen" aria-hidden="true">
+        <div class="end-screen-card" role="dialog" aria-modal="true">
+            <div class="end-screen-icon">🌿</div>
+            <h2>Félicitations !</h2>
+            <p>Ta séance de cohérence cardiaque est terminée. Prends un moment pour ressentir le calme en toi.</p>
+            <button class="btn btn-primary" id="endScreenCloseBtn" type="button">Nouvelle séance</button>
+        </div>
+    </div>
+
+    <script src="js/ui.js"></script>
+    <script src="js/media.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- PWA Service Worker -->
+    <script>
+        // Gestion de l'installation PWA
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            console.log('💡 L\'application peut être installée');
+        });
+    </script>
+
+</body>
+</html>
